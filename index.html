@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>List of purchases</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body class="w3-container">
+
+<h2 class="w3-center">My Shoping List</h2>
+
+<!--Parcing currency-->
+<br><div class="w3-row w3-xlarge">
+<div id="EURO" class="w3-col s4 w3-green w3-center"></div>
+<div id="USD" class="w3-col s4 w3-dark-grey w3-center"></div>
+<div id="PLN" class="w3-col s4 w3-red w3-center"></div>
+</div><br>
+<!--/Parcing currency-->
+
+<!--Input eria-->
+<div class="w3-card-4">
+  <div class="w3-row" style= "text-shadow:1px 1px 0 #444;">
+    <div class="w3-col s6 w3-green w3-center">  
+      <p id="report" class = "w3-left-align w3-xlarge" style="padding-left: 20px; padding-top: 10px; visibility: hidden;">TOTAL INCOME FOR 2019 YEAR: <span id="totalPrice1">0 <spna>UAH</spna></span></p><!--Total price for 2019-->
+    </div>
+    <div class="w3-col s6 w3-dark-grey w3-center">  
+      <p class = "w3-right-align w3-xlarge" style="padding-right: 20px; padding-top: 10px;">TOTAL PRICE: <span id="totalPrice">0 <spna>UAH</spna></span></p><!--Total price-->
+    </div>
+  </div><br>
+
+<!--Form for input data-->
+<form class="w3-container" id="myForm">
+      <div class="w3-quarter">
+      <input class="w3-input w3-border" id="id1" type="date" name="data" placeholder="Add date: 25-11-14" value="" required>
+      </div>
+      <div class="w3-quarter w3-margin-bottom">
+      <input class="w3-input w3-border" id="price" type="number" name="price" placeholder="Add price: 12" value="" min="1" max="1000000" required>
+      </div>
+      <div class="w3-quarter w3-margin-bottom">
+      <input class="w3-input w3-border" id="currency" type="text" name="curency" placeholder="Add currency: USD, EURO, PLN, UAH" value="" required>
+      </div>
+      <div class="w3-quarter w3-margin-bottom">
+      <input class="w3-input w3-border" type="text" name="item" placeholder="Add purchase item: Bread" value="" required>
+      </div>
+      <div class = "w3-margin w3-margin-bottom"></div>
+      
+      <input id="myBtn" onclick="myTest()" value="Add New Row" class="w3-button w3-block w3-teal">
+    </form><br>
+<!--/Form for input data-->
+
+</div>
+<!--/Input eria-->
+<br>
+
+<h3>List of purchases</h3>
+
+<!--Table-->
+<table id="myTable" class="w3-table-all">
+  <tr><!--Sort a table-->  
+    <th onclick="w3.sortHTML('#myTable', '.one', 'td:nth-child(1)')" style="cursor:pointer">Date <span>&#8691;</span> <span>(Click to shows all purchases sorted by date)</span></th>
+    <th onclick="w3.sortHTML('#myTable', '.one', 'td:nth-child(2)')" style="cursor:pointer">Price <span>&#8691;</span></th>
+    <th onclick="w3.sortHTML('#myTable', '.one', 'td:nth-child(3)')" style="cursor:pointer">Curency <span>&#8691;</span></th>
+    <th onclick="w3.sortHTML('#myTable', '.one', 'td:nth-child(4)')" style="cursor:pointer">Convert in UAH <span>&#8691;</span></th>
+    <th onclick="w3.sortHTML('#myTable', '.one', 'td:nth-child(5)')" style="cursor:pointer">Purchase <span>&#8691;</span></th>
+  </tr><!--/Sort a table-->
+  <tr class="item one">
+    <td>2019-04-25</td>
+    <td>12</td>
+    <td>USD</td>
+    <td>316.20</td>
+    <td>Photo Frame</td>
+  </tr>
+</table>
+<br>
+<!--/Table-->
+
+<div class="w3-container w3-center">
+<div class="w3-bar">
+  <button class="w3-button w3-black" onclick="rowDel()">Delete First Row</button>
+  <button class="w3-button w3-teal" onclick="clearYear()">Clear(chose year)</button><!--Search and clear row/rows-->
+  <button class="w3-button w3-red" id="delSelRows">Delete All Rows</button>
+  <button class="w3-button w3-green" onclick="report()">report 2019 UAH</button>
+</div>
+</div>
+
+<script src="myScript.js"></script>
+
+</body>
+</html>
