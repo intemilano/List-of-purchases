@@ -56,10 +56,7 @@
 /*Form input field height*/
 #myForm input {height: 50px;}
 
-.hiding {
-  display: none;
-}
-
+/*Add a class to inserting rows*/
 .one {
   color: black;
 }
